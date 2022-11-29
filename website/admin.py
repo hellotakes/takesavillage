@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from website.models.specialist import Specialist, SpecialistAddress
+
+admin.site.register(Specialist)
+admin.site.register(SpecialistAddress)

@@ -15,4 +15,4 @@ class Language(models.TextChoices):
 
 
 class Speciality(models.TextChoices):
-    pass
+    SPECIALITY = 'SPE', _('Speciality'),
