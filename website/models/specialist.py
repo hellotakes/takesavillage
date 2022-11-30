@@ -20,6 +20,9 @@ class Specialist(models.Model):
         on_delete=models.PROTECT
     )
 
+    def __str__(self):
+        return f"{self.last_name} {self.first_name}"
+
 
 class SpecialistAddress(models.Model):
     street = models.CharField(max_length=128)
@@ -27,4 +30,7 @@ class SpecialistAddress(models.Model):
     city = models.CharField(max_length=128)
     postal_code = models.PositiveSmallIntegerField()
     country = models.CharField(max_length=128)
+
+    def __str__(self):
+        return f"{self.street} {self.street_no}, {self.postal_code} {self.city}, {self.country}"
 
