@@ -9,7 +9,9 @@
         </form>
     </div>
     <div class="col">
-
+        {% for obj in filter.qs %}
+            {{ obj.first_name }}<br />
+        {% endfor %}
     </div>
     <div class="col">
 

@@ -8,20 +8,20 @@ class Specialist(models.Model):
     last_name = models.CharField(max_length=64)
     sex = models.CharField(max_length=1, choices=Sex.choices)
 
+    profile_photo = models.ImageField(upload_to="specialists/profiles/")
+
     physical = models.BooleanField(default=True)
     online = models.BooleanField(default=False)
     description = models.TextField(max_length=640)
     language = models.CharField(max_length=2, choices=Language.choices)
     speciality = models.CharField(max_length=128, choices=Speciality.choices)
+    address = models.OneToOneField(
+        'SpecialistAddress',
+        on_delete=models.PROTECT
+    )
 
 
 class SpecialistAddress(models.Model):
-    specialist = models.OneToOneField(
-        'Specialist',
-        on_delete=models.CASCADE,
-        related_name='address',
-        related_query_name='address'
-    )
     street = models.CharField(max_length=128)
     street_no = models.PositiveSmallIntegerField()
     city = models.CharField(max_length=128)
