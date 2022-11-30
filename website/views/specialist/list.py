@@ -1,6 +1,6 @@
 from django import forms
 from django.db import models
-from django_filters import FilterSet, BooleanFilter
+from django_filters import FilterSet, BooleanFilter, CharFilter
 from django_filters.views import FilterView
 
 from website.models.specialist import Specialist
@@ -19,6 +19,12 @@ class SpecialistFilter(FilterSet):
             'sex'
         ]
         filter_overrides = {
+            models.CharField: {
+                'filter_class': CharFilter,
+                'extra': lambda f: {
+                    'lookup_expr': 'icontains',
+                },
+            },
             models.BooleanField: {
                 'filter_class': BooleanFilter,
                 'extra': lambda f: {
