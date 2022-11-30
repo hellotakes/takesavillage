@@ -3,10 +3,7 @@
 {% block body_content %}
 <div class="row">
     <div class="col-md-2">
-        <form method="get">
-            {{ filter.form.as_p }}
-            <input type="submit" />
-        </form>
+        {% include "website/specialist/blocks/specialist_list_search.html" with form=filter.form %}
     </div>
     <div class="col-md-5">
         {% for specialist in filter.qs %}

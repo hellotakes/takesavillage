@@ -1,4 +1,6 @@
-from django_filters import FilterSet
+from django import forms
+from django.db import models
+from django_filters import FilterSet, BooleanFilter
 from django_filters.views import FilterView
 
 from website.models.specialist import Specialist
@@ -16,6 +18,14 @@ class SpecialistFilter(FilterSet):
             'language',
             'sex'
         ]
+        filter_overrides = {
+            models.BooleanField: {
+                'filter_class': BooleanFilter,
+                'extra': lambda f: {
+                    'widget': forms.CheckboxInput,
+                },
+            },
+        }
 
 
 class SpecialistListView(FilterView):
