@@ -20,6 +20,10 @@ class Specialist(models.Model):
         on_delete=models.PROTECT
     )
 
+    @property
+    def full_name(self) -> str:
+        return f"{self.last_name} {self.first_name}"
+
     def __str__(self):
         return f"{self.last_name} {self.first_name}"
 

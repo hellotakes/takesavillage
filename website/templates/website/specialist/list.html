@@ -2,18 +2,18 @@
 
 {% block body_content %}
 <div class="row">
-    <div class="col">
+    <div class="col-md-2">
         <form method="get">
             {{ filter.form.as_p }}
             <input type="submit" />
         </form>
     </div>
-    <div class="col">
-        {% for obj in filter.qs %}
-            {{ obj.first_name }}<br />
+    <div class="col-md-5">
+        {% for specialist in filter.qs %}
+            {% include "website/specialist/blocks/specialist_list_item.html" with specialist=specialist only %}
         {% endfor %}
     </div>
-    <div class="col">
+    <div class="col-md-5">
 
     </div>
 </div>
