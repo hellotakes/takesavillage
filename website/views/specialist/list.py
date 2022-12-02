@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.gis.forms import PointField, OSMWidget
 from django.db import models
 from django_filters import FilterSet, BooleanFilter, CharFilter
 from django_filters.views import FilterView

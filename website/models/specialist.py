@@ -1,3 +1,4 @@
+from django.contrib.gis.db.models import PointField, GeometryField
 from django.db import models
 
 from website.models.choices import Sex, Language, Speciality
@@ -29,12 +30,7 @@ class Specialist(models.Model):
 
 
 class SpecialistAddress(models.Model):
-    street = models.CharField(max_length=128)
-    street_no = models.PositiveSmallIntegerField()
-    city = models.CharField(max_length=128)
-    postal_code = models.PositiveSmallIntegerField()
-    country = models.CharField(max_length=128)
+    point = PointField()
 
     def __str__(self):
-        return f"{self.street} {self.street_no}, {self.postal_code} {self.city}, {self.country}"
-
+        return f"Point {self.point}"

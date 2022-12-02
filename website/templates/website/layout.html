@@ -9,6 +9,7 @@
     {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'website/bootstrap/css/bootstrap.css' %}" >
     <link rel="stylesheet" href="{% static 'website/bootstrap/icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'website/leaflet/leaflet.css' %}">
     {% endblock %}
 </head>
 
@@ -27,6 +28,8 @@
 
 {% block javascript %}
 <script src="{% static 'website/bootstrap/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'website/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'website/js/map.js' %}"></script>
 {% endblock javascript %}
 </body>
 
