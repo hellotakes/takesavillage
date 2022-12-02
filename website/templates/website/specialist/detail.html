@@ -1,0 +1,15 @@
+{% extends "website/layout.html" %}
+
+{% block body_content %}
+<div class="row">
+
+    <div class="col-md-4 offset-md-2">
+        {% include "website/specialist/blocks/specialist_detail.html" with specialist=specialist only %}
+    </div>
+
+    <div class="col">
+        {% include "website/specialist/blocks/availability.html" with specialist=specialist only %}
+    </div>
+
+</div>
+{% endblock body_content %}
