@@ -17,10 +17,26 @@ function initMap(){
 
 function addMarkersFromHtml(map) {
     document.querySelectorAll(".map-marker").forEach(function (e) {
-        addMarker(map, e.dataset.latitude, e.dataset.longitude);
+        const marker = addMarker(map, e.dataset.latitude, e.dataset.longitude);
+
+        const event = e.dataset.event;
+        if (event !== undefined) {
+            addEventOnMarker(marker, event, e.dataset.param);
+        }
     });
 }
 
 function addMarker(map, lat, long) {
     return L.marker([lat, long]).addTo(map);
+}
+
+function addEventOnMarker(marker, eventName, param) {
+    marker.on(eventName, function(){
+        const selectedCard = document.querySelector("card.border-primary");
+        if (selectedCard != null) {
+            selectedCard.classList.remove("border-primary");
+        }
+
+        document.querySelector(param).classList.add("border-primary");
+    });
 }

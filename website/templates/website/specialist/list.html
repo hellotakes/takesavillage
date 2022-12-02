@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-5">
         {% for specialist in filter.qs %}
-            {% include "website/specialist/blocks/specialist_list_item.html" with specialist=specialist only %}
+            {% include "website/specialist/blocks/specialist_list_item.html" with specialist=specialist item_number=forloop.counter only %}
         {% endfor %}
     </div>
     <div id="map" class="col-md-5">

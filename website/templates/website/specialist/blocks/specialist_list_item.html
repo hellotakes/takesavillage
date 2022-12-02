@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="card mb-3">
+<div class="card mb-3" id="card-{{ item_number }}">
     <div class="row g-0">
         <div class="col-md-4 align-self-center">
             <img src="{{ specialist.profile_photo.url }}" class="img-fluid" alt="">
@@ -10,7 +10,13 @@
                 <h5 class="card-title">{{ specialist.full_name }}</h5>
                 <h6 class="card-subtitle text-muted">{{ specialist.speciality }}</h6>
                 <p class="card-text">{{ specialist.address }}</p>
-                <div class="map-marker" data-latitude="{{ specialist.address.latitude }}" data-longitude="{{ specialist.address.longitude }}"></div>
+                <div
+                        class="map-marker"
+                        data-latitude="{{ specialist.address.latitude }}"
+                        data-longitude="{{ specialist.address.longitude }}"
+                        data-event="click"
+                        data-param="#card-{{ item_number }}"
+                ></div>
             </div>
         </div>
     </div>
