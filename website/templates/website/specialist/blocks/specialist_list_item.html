@@ -9,9 +9,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{ specialist.full_name }}</h5>
                 <h6 class="card-subtitle text-muted">{{ specialist.speciality }}</h6>
-                <p class="card-text">
-                    {{ specialist.address }}
-                </p>
+                <p class="card-text">{{ specialist.address }}</p>
+                <div class="map-marker" data-latitude="{{ specialist.address.latitude }}" data-longitude="{{ specialist.address.longitude }}"></div>
             </div>
         </div>
     </div>

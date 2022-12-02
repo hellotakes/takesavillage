@@ -1,10 +1,11 @@
 window.addEventListener('load', function(){
     const map = initMap();
+    addMarkersFromHtml(map);
 
 })
 
 function initMap(){
-    var map = L.map('map').setView([50.8458, 4.352], 13);
+    const map = L.map('map').setView([50.8458, 4.352], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -14,6 +15,12 @@ function initMap(){
     return map;
 }
 
+function addMarkersFromHtml(map) {
+    document.querySelectorAll(".map-marker").forEach(function (e) {
+        addMarker(map, e.dataset.latitude, e.dataset.longitude);
+    });
+}
+
 function addMarker(map, lat, long) {
-    return L.marker([50.847233, 4.348794]).addTo(map);
+    return L.marker([lat, long]).addTo(map);
 }

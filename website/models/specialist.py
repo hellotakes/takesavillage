@@ -34,3 +34,9 @@ class SpecialistAddress(models.Model):
 
     def __str__(self):
         return f"Point {self.point}"
+
+    def latitude(self) -> float:
+        return self.point.y
+
+    def longitude(self) -> float:
+        return self.point.x
