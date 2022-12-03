@@ -1,0 +1,2 @@
+<input type="radio" class="btn-check" id="btn-radio-{{ slot.timestamp }}" autocomplete="off" name="slot" value="{{ slot.isoformat }}" required>
+<label class="btn btn-outline-primary" for="btn-radio-{{ slot.timestamp }}">{{ slot|date:'G:i' }}</label>

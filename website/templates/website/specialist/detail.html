@@ -3,12 +3,12 @@
 {% block body_content %}
 <div class="row">
 
-    <div class="col-md-4 offset-md-2">
+    <div class="col-md-5 offset-md-1">
         {% include "website/specialist/blocks/specialist_detail.html" with specialist=specialist only %}
     </div>
 
-    <div class="col">
-        {% include "website/specialist/blocks/availability.html" with specialist=specialist only %}
+    <div class="col-md-5 fs-6">
+        {% include "website/specialist/blocks/availability.html" with specialist=specialist slots=slots %}
     </div>
 
 </div>
