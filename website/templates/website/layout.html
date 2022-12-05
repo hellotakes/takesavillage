@@ -10,19 +10,19 @@
     <link rel="stylesheet" href="{% static 'website/bootstrap/css/bootstrap.css' %}" >
     <link rel="stylesheet" href="{% static 'website/bootstrap/icons/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'website/leaflet/leaflet.css' %}">
+    <link rel="stylesheet" href="{% static 'website/css/website.css' %}">
     {% endblock %}
 </head>
 
 <body>
 
-<div class="container-fluid">
-    {% block navbar %}
-        {% include "website/blocks/navbar.html" %}
-    {% endblock %}
+{% block navbar %}
+    {% include "website/blocks/navbar.html" %}
+{% endblock %}
 
+<div class="container-fluid">
     {% block body_content %}
     {% endblock body_content %}
-
 </div>
 
 
