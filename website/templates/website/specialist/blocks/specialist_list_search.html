@@ -1,12 +1,11 @@
 {% load django_bootstrap5 %}
 <form method="get">
-    {% bootstrap_field form.last_name layout='floating'%}
-    {% bootstrap_field form.first_name layout='floating' %}
     {% bootstrap_field form.speciality layout='floating' %}
+    {% bootstrap_field form.language layout='floating' %}
     {% bootstrap_field form.physical %}
     {% bootstrap_field form.online %}
     {% bootstrap_field form.sex layout='floating' %}
-    {% bootstrap_field form.language layout='floating' %}
+
     <button type="submit" class="btn btn-primary">
         <i class="bi bi-search"></i>
     </button>

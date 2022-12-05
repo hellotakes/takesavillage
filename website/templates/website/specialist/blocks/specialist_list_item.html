@@ -1,17 +1,15 @@
 {% load static %}
 
 <div class="card mb-3" id="card-{{ item_number }}">
-    <div class="row g-0">
-        <div class="col-md-4 align-self-center">
-            <a href="{% url 'specialist_detail' specialist.pk %}">
+    <div class="row">
+        <div class="col-2 align-self-center">
             <img src="{{ specialist.profile_photo.url }}" class="img-fluid" alt="">
-            </a>
         </div>
-        <div class="col-md-8">
+        <div class="col-10">
             <div class="card-body">
-                <h5 class="card-title">{{ specialist.full_name }}</h5>
-                <h6 class="card-subtitle text-muted">{{ specialist.speciality }}</h6>
-                <p class="card-text">{{ specialist.address }}</p>
+                <h5 class="card-title"><a class="text-reset stretched-link" href="{% url 'specialist_detail' specialist.pk %}">{{ specialist.full_name }}</a></h5>
+                <h6 class="card-subtitle fw-normal">{{ specialist.speciality }}</h6>
+                <p class="card-text text-muted"><small>{{ specialist.address }}</small></p>
                 <div
                         class="map-marker"
                         data-latitude="{{ specialist.address.latitude }}"
