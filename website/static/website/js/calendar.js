@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+    const calendarEl = document.getElementById('calendar');
     if (calendarEl !== null){
-        var calendar = new FullCalendar.Calendar(calendarEl, {
+        const eventsUrl = calendarEl.dataset.eventsUrl;
+        const calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'timeGridWeek',
             themeSystem: 'bootstrap5',
             height: "auto",
             allDaySlot: false,
             slotMinTime: '6:00',
             slotMaxTime: '20:00',
+            nowIndicator: true,
+            events: eventsUrl,
         });
         calendar.render();
     }
