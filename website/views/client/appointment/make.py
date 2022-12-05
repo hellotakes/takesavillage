@@ -15,7 +15,7 @@ class AppointmentForm(forms.Form):
 
 
 class AppointmentCreateView(FormView, SuccessMessageMixin):
-    template_name = "website/specialist/detail.html"
+    template_name = "website/client/specialist/detail.html"
 
     form_class = AppointmentForm
 

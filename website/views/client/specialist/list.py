@@ -33,6 +33,6 @@ class SpecialistFilter(FilterSet):
 
 
 class SpecialistListView(FilterView):
-    template_name = "website/specialist/list.html"
+    template_name = "website/client/specialist/list.html"
     model = Specialist
     filterset_class = SpecialistFilter

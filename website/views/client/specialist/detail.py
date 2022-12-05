@@ -9,7 +9,7 @@ from website.models.specialist import Specialist
 
 
 class SpecialistDetailView(DetailView):
-    template_name = "website/specialist/detail.html"
+    template_name = "website/client/specialist/detail.html"
     model = Specialist
 
     context_object_name = "specialist"

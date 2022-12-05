@@ -4,11 +4,11 @@
 <div class="row min-vh-100">
     <div class="col-md-6 mt-3 order-md-1">
         {% for specialist in filter.qs %}
-            {% include "website/specialist/blocks/specialist_list_item.html" with specialist=specialist item_number=forloop.counter only %}
+            {% include "website/client/specialist/blocks/specialist_list_item.html" with specialist=specialist item_number=forloop.counter only %}
         {% endfor %}
     </div>
     <div class="col-md-2 mt-3 order-md-0">
-        {% include "website/specialist/blocks/specialist_list_search.html" with form=filter.form %}
+        {% include "website/client/specialist/blocks/specialist_list_search.html" with form=filter.form %}
     </div>
     <div id="map" class="col-md-4 d-none d-md-block order-md-2">
     </div>
