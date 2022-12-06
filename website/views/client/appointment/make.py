@@ -1,6 +1,7 @@
 import datetime
 
 from django import forms
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -14,7 +15,7 @@ class AppointmentForm(forms.Form):
     slot = forms.DateTimeField(required=True)
 
 
-class AppointmentCreateView(FormView, SuccessMessageMixin):
+class AppointmentCreateView(LoginRequiredMixin, FormView, SuccessMessageMixin):
     template_name = "website/client/specialist/detail.html"
 
     form_class = AppointmentForm
@@ -25,6 +26,7 @@ class AppointmentCreateView(FormView, SuccessMessageMixin):
     def form_valid(self, form):
         Appointment(
             specialist=Specialist.objects.get(pk=self.kwargs['pk']),
+            client=self.request.user.client,
             from_time=form.cleaned_data['slot'],
             duration=datetime.timedelta(minutes=30),
         ).save()
