@@ -1,13 +1,13 @@
 {% extends "website/layout.html" %}
 
 {% block body_content %}
-<div class="row">
+<div class="row mt-3">
 
-    <div class="col-md-5 offset-md-1">
+    <div class="col-md-4 offset-md-2">
         {% include "website/client/specialist/blocks/specialist_detail.html" with specialist=specialist only %}
     </div>
 
-    <div class="col-md-5 fs-6">
+    <div class="col-md-4 mt-md-5">
         {% include "website/client/specialist/blocks/availability.html" with specialist=specialist slots=slots %}
     </div>
 
