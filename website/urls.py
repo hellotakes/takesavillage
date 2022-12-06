@@ -3,6 +3,7 @@ from django.urls import path, include
 from website.views.client.appointment.make import AppointmentCreateView
 from website.views.client.home import HomeView
 from website.views.client.login import LoginClientView
+from website.views.client.logout import LogoutClientView
 from website.views.client.signup import SignupView
 from website.views.client.specialist.detail import SpecialistDetailView
 from website.views.client.specialist.list import SpecialistListView
@@ -12,6 +13,7 @@ from website.views.specialist.home import HomeSpecialistView
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('login/', LoginClientView.as_view(), name="login_client"),
+    path('logout/', LogoutClientView.as_view(), name="logout_client"),
     path('signup/', SignupView.as_view(), name="signup"),
     path('specialists/', SpecialistListView.as_view(), name='specialist_list'),
     path('specialist/<int:pk>', SpecialistDetailView.as_view(), name="specialist_detail"),
