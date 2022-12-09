@@ -6,4 +6,4 @@ class LoginClientView(LoginView):
     template_name = "website/parent/auth/login.html"
 
     def get_default_redirect_url(self):
-        return reverse("home")
+        return reverse("parent:specialist_list")
