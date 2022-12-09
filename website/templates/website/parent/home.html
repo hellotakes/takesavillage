@@ -1,0 +1,59 @@
+{% extends 'website/parent/layout.html' %}
+
+{% load static i18n %}
+
+
+{% block body_content %}
+    <div class="row">
+        <div class="col-md-4 my-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">{% trans 'Search a specialist' %}</h1>
+                    <form action="{% url 'parent:specialist_list' %}" method="get" class="text-end">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                            <input type="text" class="form-control" id="input-speciality" aria-describedby="basic-addon3">
+                        </div>
+
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                            <input type="text" class="form-control" id="input-location" aria-describedby="basic-addon3">
+                        </div>
+                        <button type="submit" class="btn btn-primary">{% trans "Search" %}</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 text-end">
+            <img src="{% static "website/img/happy_family.jpg" %}" class="img-fluid" alt="">
+            <small class="text-muted">
+                <a class="text-reset" href="https://www.freepik.com/free-vector/happy-young-family-with-baby-pediatrician-doctor_9649968.htm#query=parents%20baby&position=7&from_view=keyword">Image by pch.vector</a> on Freepik
+            </small>
+        </div>
+
+    </div>
+
+
+    <div class="row ">
+        <div class="col">
+            <section>
+                <h2>Section 1</h2>
+                <p>{% lorem %}</p>
+            </section>
+        </div>
+        <div class="col">
+            <section>
+                <h2>Section 2</h2>
+                <p>{% lorem %}</p>
+            </section>
+        </div>
+        <div class="col">
+            <section>
+                <h2>Section 3</h2>
+                <p>{% lorem %}</p>
+            </section>
+        </div>
+    </div>
+{% endblock body_content %}

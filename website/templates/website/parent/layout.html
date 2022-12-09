@@ -9,15 +9,15 @@
     {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'website/bootstrap/css/bootstrap.css' %}" >
     <link rel="stylesheet" href="{% static 'website/bootstrap/icons/bootstrap-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'website/fullcalendar/main.css' %}">
-    <link rel="stylesheet" href="{% static 'website/css/specialist.css' %}">
+    <link rel="stylesheet" href="{% static 'website/leaflet/leaflet.css' %}">
+    <link rel="stylesheet" href="{% static 'website/css/parent.css' %}">
     {% endblock %}
 </head>
 
 <body>
 
 {% block navbar %}
-    {% include "website/specialist/blocks/navbar.html" %}
+    {% include "website/parent/blocks/navbar.html" %}
 {% endblock %}
 
 <div class="container-fluid">
@@ -28,8 +28,8 @@
 
 {% block javascript %}
 <script src="{% static 'website/bootstrap/js/bootstrap.bundle.js' %}"></script>
-<script src="{% static 'website/fullcalendar/main.js' %}"></script>
-<script src="{% static 'website/js/calendar.js' %}"></script>
+<script src="{% static 'website/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'website/js/map.js' %}"></script>
 {% endblock javascript %}
 </body>
 

@@ -1,0 +1,41 @@
+{% load i18n %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">{% trans "Find an availability" %}</h4>
+        <hr class="border border-dark opacity-75">
+        <form action="{% url 'parent:appointment_create' specialist.pk %}" method="post">
+            {% csrf_token %}
+            <div class="table-responsive" style="height: 30em;">
+                <table class="table table-sm">
+                    <thead style="position: sticky; top: 0;">
+                    <tr>
+                        <th scope="col">Lu</th>
+                        <th scope="col">Mar</th>
+                        <th scope="col">Mer</th>
+                        <th scope="col">Jeu</th>
+                        <th scope="col">Ven</th>
+                        <th scope="col">Sam</th>
+                        <th scope="col">Dim</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for slot in slots %}
+                        <tr>
+                            <th scope="row">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.0 only %}</th>
+                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.1 only %}</th>
+                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.2 only %}</th>
+                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.3 only %}</th>
+                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.4 only %}</th>
+                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.5 only %}</th>
+                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.6 only %}</th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+            <hr class="border border-primary opacity-75">
+            <button type="submit" class="btn btn-primary w-100">{% trans "Make an appointment" %}</button>
+        </form>
+    </div>
+</div>

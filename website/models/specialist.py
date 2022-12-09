@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.contrib.gis.db.models import PointField
 from django.db import models
 
@@ -5,11 +6,10 @@ from website.models.choices import Sex, Language, Speciality
 
 
 class Specialist(models.Model):
-    first_name = models.CharField(max_length=64)
-    last_name = models.CharField(max_length=64)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     sex = models.CharField(max_length=1, choices=Sex.choices)
 
-    profile_photo = models.ImageField(upload_to="specialists/profiles/")
+    profile_photo = models.ImageField(upload_to="specialist/profile/")
 
     physical = models.BooleanField(default=True)
     online = models.BooleanField(default=False)
@@ -20,6 +20,18 @@ class Specialist(models.Model):
         'SpecialistAddress',
         on_delete=models.PROTECT
     )
+
+    @property
+    def first_name(self) -> str:
+        return self.user.first_name
+
+    @property
+    def last_name(self) -> str:
+        return self.user.last_name
+
+    @property
+    def email(self) -> str:
+        return self.user.email
 
     @property
     def full_name(self) -> str:
