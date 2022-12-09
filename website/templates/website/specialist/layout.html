@@ -20,9 +20,15 @@
     {% include "website/specialist/blocks/navbar.html" %}
 {% endblock %}
 
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        {% include "website/specialist/blocks/messages.html" %}
+    </div>
+</div>
+
 <div class="container-fluid">
-    {% block body_content %}
-    {% endblock body_content %}
+    {% block content %}
+    {% endblock content %}
 </div>
 
 

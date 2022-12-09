@@ -1,7 +1,30 @@
 {% load i18n %}
-<nav class="navbar bg-light">
+<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a href="{% url 'specialist:home' %}" class="navbar-brand"><i class="bi bi-houses-fill"></i> It Takes A Village</a>
-        <a href="{% url 'parent:home' %}" class="navbar-brand">{% trans "I am a client "%} <i class="bi bi-box-arrow-in-right"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'parent:home' %}" class="nav-link">{% trans "I am a parent"%} <i class="bi bi-box-arrow-in-right"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'specialist:sign_up' %}" class="nav-link">{% trans "Log in" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'specialist:sign_up' %}" class="nav-link active">{% trans "Join us" %}</a>
+                    </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    {% include "website/parent/blocks/select_language.html" %}
+                </li>
+            </ul>
+        </div>
+
     </div>
 </nav>

@@ -1,6 +1,6 @@
 {% extends "website/parent/layout.html" %}
 
-{% block body_content %}
+{% block content %}
 <div class="row min-vh-100">
     <div class="col-md-6 mt-3 order-md-1">
         {% for specialist in filter.qs %}
@@ -13,4 +13,4 @@
     <div id="map" class="col-md-4 d-none d-md-block order-md-2">
     </div>
 </div>
-{% endblock body_content %}
+{% endblock content %}
