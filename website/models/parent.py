@@ -16,6 +16,9 @@ class Parent(models.Model):
     def last_name(self) -> str:
         return self.user.last_name
 
+    def full_name(self) -> str:
+        return f"{self.first_name} {self.last_name}"
+
     @property
     def email(self) -> str:
         return self.user.email

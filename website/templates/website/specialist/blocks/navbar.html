@@ -8,12 +8,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ user.get_username }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'parent:logout' %}">{% trans 'Log out' %}</a></li>
+                        </ul>
+                    </li>
                 {% else %}
                     <li class="nav-item">
                         <a href="{% url 'parent:home' %}" class="nav-link">{% trans "I am a parent"%} <i class="bi bi-box-arrow-in-right"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'specialist:sign_up' %}" class="nav-link">{% trans "Log in" %}</a>
+                        <a href="{% url 'specialist:login' %}" class="nav-link">{% trans "Log in" %}</a>
                     </li>
                     <li class="nav-item">
                         <a href="{% url 'specialist:sign_up' %}" class="nav-link active">{% trans "Join us" %}</a>

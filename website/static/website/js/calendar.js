@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
             slotMaxTime: '20:00',
             nowIndicator: true,
             events: eventsUrl,
+            headerToolbar: {
+                end: 'prev,next'
+            }
         });
         calendar.render();
     }
