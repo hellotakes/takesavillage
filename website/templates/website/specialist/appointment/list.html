@@ -1,0 +1,14 @@
+{% extends 'website/specialist/layout.html' %}
+
+{% load static i18n %}
+
+
+{% block body_content %}
+    <div class="row mt-3">
+        <div class="col-md-10 offset-md-1">
+            <div id="calendar" data-events-url="{% url "specialist:appointment_list" %}"></div>
+        </div>
+
+    </div>
+
+{% endblock body_content %}

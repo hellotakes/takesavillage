@@ -15,7 +15,7 @@ class SignUpForm(UserCreationForm):
 
 
 class SignupView(CreateView):
-    template_name = "website/parent/signup.html"
+    template_name = "website/parent/auth/signup.html"
     model = User
     form_class = SignUpForm
 

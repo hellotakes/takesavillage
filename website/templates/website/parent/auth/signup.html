@@ -1,9 +1,9 @@
-{% extends "website/layout.html" %}
+{% extends "website/parent/layout.html" %}
+
 {% load i18n %}
 {% load django_bootstrap5 %}
 
 {% block body_content %}
-
     <div class="row">
         <div class="col-md-4 mx-auto mt-md-5">
             <div class="card">
@@ -12,10 +12,8 @@
                         {% csrf_token %}
                         {% bootstrap_form form %}
                         <button type="submit" class="btn btn-primary">
-                            {% trans "Login" %}
+                            {% trans "Sign Up" %}
                         </button>
-                        <input type="hidden" name="next" value="{{ next }}">
-
                         {% bootstrap_form_errors form %}
                     </form>
                 </div>
@@ -23,5 +21,4 @@
 
         </div>
     </div>
-
-{% endblock %}
+{% endblock body_content %}
