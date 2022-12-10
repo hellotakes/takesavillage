@@ -44,7 +44,7 @@ class Specialist(models.Model):
 class SpecialistAddress(models.Model):
     street = models.CharField(max_length=128)
     street_no = models.CharField(max_length=4)
-    postal_code = models.IntegerField(max_length=4)
+    postal_code = models.IntegerField()
     city = models.CharField(max_length=128)
     country = models.CharField(max_length=64)
     point = PointField()
