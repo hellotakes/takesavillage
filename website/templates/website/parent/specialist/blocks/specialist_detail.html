@@ -1,13 +1,34 @@
+{% load i18n %}
 <h4>
     {{ specialist.full_name }}
     <small class="fs-6 fw-light ms-3">{% include 'website/parent/specialist/blocks/rank.html' with ranking=4.5 number_comments=125 %}</small>
 </h4>
 <span class="badge rounded-pill text-bg-info">{{ specialist.speciality }}</span>
-<p>{{ specialist.address }}</p>
+<p><i class="bi bi-geo-alt-fill"></i> {{ specialist.address }}</p>
 
-<img src="{{ specialist.profile_photo.url }}" class="img-fluid" alt="">
 
-<p class="mt-md-5">
+<div class="ratio ratio-16x9">
+    <iframe
+            src="https://www.youtube.com/embed/G1Pp3yespPQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+</div>
+
+<p class="mt-md-3">
     {{ specialist.description }}
     {% lorem %}
 </p>
+
+<div class="card">
+    <div class="card-body">
+        <ul class="list-unstyled">
+            <li><i class="bi bi-check"></i> {{ specialist.get_language_display }}</li>
+            <li><i class="bi bi-check"></i> {% trans 'Annulation conditions' %}</li>
+            <li><i class="bi bi-check"></i> Diplômé en ...</li>
+        </ul>
+
+    </div>
+</div>
