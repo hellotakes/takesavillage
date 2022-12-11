@@ -24,15 +24,23 @@
             </div>
         </div>
     </div>
-    <div class="col-5">
+    <div class="col-5 my-auto">
         <table class="table table-sm">
             <tbody>
                 {% for day_slots in slots %}
+                    {% if forloop.counter < 4 %}
                     <tr>
                         {% for slot in day_slots %}
-                            <th>{% if slot %}{{ slot.start|date:'H:i' }}{% else %}-{% endif %}</th>
+                            <td>
+                                {% if slot %}
+                                    <button class="btn btn-outline-secondary btn-sm">{{ slot.start|date:'H:i' }}</button>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
                         {% endfor %}
                     </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
 

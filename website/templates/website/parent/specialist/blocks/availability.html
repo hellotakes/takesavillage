@@ -1,11 +1,15 @@
 {% load i18n %}
+{% load django_bootstrap5 %}
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">{% trans "Find an availability" %}</h4>
+        <h4 class="card-title"><i class="bi bi-currency-euro"></i> 70 - 120</h4>
         <hr class="border border-dark opacity-75">
         <form action="{% url 'parent:appointment_create' specialist.pk %}" method="post">
             {% csrf_token %}
-            <div class="table-responsive" style="height: 30em;">
+
+            {% bootstrap_field form.speciality layout='floating' %}
+
+            <div class="table-responsive" style="height: 20em;">
                 <table class="table table-sm">
                     <thead style="position: sticky; top: 0; background-color: white;">
                     <tr>
@@ -22,13 +26,13 @@
                     <tbody>
                     {% for slot in slots %}
                         <tr>
-                            <th scope="row">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.0 only %}</th>
-                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.1 only %}</th>
-                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.2 only %}</th>
-                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.3 only %}</th>
-                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.4 only %}</th>
-                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.5 only %}</th>
-                            <th>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.6 only %}</th>
+                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.0 only %}</td>
+                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.1 only %}</td>
+                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.2 only %}</td>
+                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.3 only %}</td>
+                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.4 only %}</td>
+                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.5 only %}</td>
+                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.6 only %}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

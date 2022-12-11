@@ -4,6 +4,7 @@ from typing import List
 from django.views.generic import DetailView
 
 from website.business.appointment import compute_available_slots, group_slots_by_days
+from website.forms.parent.appointment import AppointmentForm
 from website.models.appointment import Appointment
 from website.models.business_hours import BusinessHours
 from website.models.specialist import Specialist
@@ -37,5 +38,6 @@ class SpecialistDetailView(DetailView):
         return {
             'slots': self.get_slots_available(),
             'days': [datetime.date.today() + datetime.timedelta(days=i) for i in range(0, 7)],
+            'form': AppointmentForm(),
             **super().get_context_data(**kwargs),
         }

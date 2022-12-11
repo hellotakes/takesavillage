@@ -3,6 +3,25 @@
 {% block content %}
 <div class="row min-vh-100">
     <div class="col-md-6 mt-3 order-md-1">
+        <div class="row">
+            <div class="col-md-5 offset-md-7">
+                <table>
+                    <thead>
+                        <tr>
+                            {% for day in days %}
+                                <th>
+                                    <div class="vstack">
+                                        <div> {{ day|date:'D' }}</div>
+                                        <div> {{ day|date:'M d' }}</div>
+                                    </div>
+                                </th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
         {% for specialist in filter.qs %}
             {% include "website/parent/specialist/blocks/specialist_list_item.html" with specialist=specialist item_number=forloop.counter slots=slots_by_specialist.0 only %}
         {% endfor %}

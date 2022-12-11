@@ -1,18 +1,14 @@
 import datetime
 
-from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
 
+from website.forms.parent.appointment import AppointmentForm
 from website.models.appointment import Appointment
 from website.models.specialist import Specialist
-
-
-class AppointmentForm(forms.Form):
-    slot = forms.DateTimeField(required=True)
 
 
 class AppointmentCreateView(LoginRequiredMixin, FormView, SuccessMessageMixin):

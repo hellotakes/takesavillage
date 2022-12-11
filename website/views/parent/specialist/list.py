@@ -46,6 +46,7 @@ class SpecialistListView(FilterView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
         context['slots_by_specialist'] = self.get_specialists_slots(object_list) if object_list else []
+        context['days'] = [datetime.date.today() + datetime.timedelta(days=i) for i in range(0, 7)]
         return context
 
     def get_specialists_slots(self, specialists: Iterable['Specialist']):
