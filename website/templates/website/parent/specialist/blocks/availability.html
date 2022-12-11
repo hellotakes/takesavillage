@@ -7,15 +7,16 @@
             {% csrf_token %}
             <div class="table-responsive" style="height: 30em;">
                 <table class="table table-sm">
-                    <thead style="position: sticky; top: 0;">
+                    <thead style="position: sticky; top: 0; background-color: white;">
                     <tr>
-                        <th scope="col">Lu</th>
-                        <th scope="col">Mar</th>
-                        <th scope="col">Mer</th>
-                        <th scope="col">Jeu</th>
-                        <th scope="col">Ven</th>
-                        <th scope="col">Sam</th>
-                        <th scope="col">Dim</th>
+                        {% for day in days %}
+                            <th scope="col">
+                                <div class="vstack">
+                                    <div> {{ day|date:'D' }}</div>
+                                    <div> {{ day|date:'M d' }}</div>
+                                </div>
+                            </th>
+                        {% endfor %}
                     </tr>
                     </thead>
                     <tbody>

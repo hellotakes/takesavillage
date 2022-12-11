@@ -1,2 +1,6 @@
-<input type="radio" class="btn-check" id="btn-radio-{{ slot.timestamp }}" autocomplete="off" name="slot" value="{{ slot.isoformat }}" required>
-<label class="btn btn-outline-secondary btn-sm" for="btn-radio-{{ slot.timestamp }}">{{ slot|date:'G:i' }}</label>
+{% if slot %}
+<input type="radio" class="btn-check" id="btn-radio-{{ slot.timestamp }}" autocomplete="off" name="slot" value="{{ slot.start.isoformat }}" required>
+<label class="btn btn-outline-secondary btn-sm" for="btn-radio-{{ slot.timestamp }}">{{ slot.start|date:'H:i' }}</label>
+    {% else %}
+    -
+{% endif %}
