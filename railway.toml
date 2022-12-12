@@ -3,6 +3,7 @@ builder = "NIXPACKS"
 
 [phases.setup]
 nixPkgs = ["...", "gdal"]
+aptPkgs = ["...", "gdal-bin"]
 
 [deploy]
 restartPolicyType = "ON_FAILURE"
