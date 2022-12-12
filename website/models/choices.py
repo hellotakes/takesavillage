@@ -15,4 +15,7 @@ class Language(models.TextChoices):
 
 
 class Speciality(models.TextChoices):
-    SPECIALITY = 'SPE', _('Speciality'),
+    # SPECIALITY = 'Lactation specialist', _('Lactation specialist'),
+    LACTATION = 'Certified Breastfeeding Specialist', _('Certified Breastfeeding Specialist'),
+    HYPNO_BIRTHING = 'HypnoBirthing® Childbirth Educator', _('HypnoBirthing® Childbirth Educator')
+

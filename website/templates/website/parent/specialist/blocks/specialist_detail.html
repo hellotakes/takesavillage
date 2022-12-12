@@ -4,6 +4,7 @@
     <small class="fs-6 fw-light ms-3">{% include 'website/parent/specialist/blocks/rank.html' with ranking=4.5 number_comments=125 %}</small>
 </h4>
 <span class="badge rounded-pill text-bg-info">{{ specialist.speciality }}</span>
+<span class="badge rounded-pill text-bg-info">HypnoBirthing® Childbirth Educator</span>
 <p><i class="bi bi-geo-alt-fill"></i> {{ specialist.address }}</p>
 
 
@@ -17,17 +18,70 @@
     </iframe>
 </div>
 
-<p class="mt-md-3">
-    {{ specialist.description }}
-    {% lorem %}
-</p>
+<div class="card mt-3">
+    <div class="card-header">
+        <i class="bi bi-person-square"></i> Profile
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            {{ specialist.description }}
+            {% lorem %}
+        </p>
 
-<div class="card">
+        <table class="table table-borderless mt-1">
+            <tbody>
+                <tr>
+                    <th>Languages</th>
+                    <td>{{ specialist.get_language_display }}, English, Portuguese</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table class="table">
+            <theader>
+                <tr>
+                    <th><i class="bi bi-mortarboard"></i></th>
+                    <th colspan="2">{% trans 'Diploma' %}</th>
+                </tr>
+            </theader>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>The International Hypnobirthing Mongan Method</td>
+                    <td>2019-20</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        <i class="bi bi-currency-euro"></i> Prices
+    </div>
+    <div class="card-body">
+        <table class="table ">
+            <tbody>
+                <tr>
+                    <td>{{ specialist.speciality }}</td>
+                    <td>70 <i class="bi bi-currency-euro"></i></td>
+                </tr>
+                <tr>
+                    <td>HypnoBirthing® Childbirth Educator</td>
+                    <td>120 <i class="bi bi-currency-euro"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="card mt-3">
     <div class="card-body">
         <ul class="list-unstyled">
-            <li><i class="bi bi-check"></i> {{ specialist.get_language_display }}</li>
-            <li><i class="bi bi-check"></i> {% trans 'Annulation conditions' %}</li>
-            <li><i class="bi bi-check"></i> Diplômé en ...</li>
+            <li><i class="bi bi-check"></i> {% trans '48 hour cancellation policy' %}</li>
+            </li>
+            <li><i class="bi bi-check"></i> Appointments: online, at your home (Brussels area) or at the practitioner's office</li>
         </ul>
 
     </div>
