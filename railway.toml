@@ -1,0 +1,9 @@
+[build]
+builder = "NIXPACKS"
+
+[phases.setup]
+nixPkgs = ["...", "gdal"]
+
+[deploy]
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
