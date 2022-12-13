@@ -1,6 +1,7 @@
 {% extends 'website/parent/layout.html' %}
 
 {% load static i18n %}
+{% load django_bootstrap5 %}
 
 
 {% block content %}
@@ -10,14 +11,23 @@
                 <div class="card-body">
                     <h1 class="card-title">{% trans 'Search a specialist' %}</h1>
                     <form action="{% url 'parent:specialist_list' %}" method="get" class="text-end">
+
                         <div class="input-group input-group-lg mb-3">
                             <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
-                            <input type="text" class="form-control" id="input-speciality" aria-describedby="basic-addon3">
+                            <select class="form-select"  id="input-speciality">
+                            {% for option_speciality in form.speciality|dictsort:'data.label' %}
+                                    <option value="{{ option_speciality }}"></option>
+                                {% endfor %}
+                            </select>
                         </div>
 
                         <div class="input-group input-group-lg mb-3">
                             <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
-                            <input type="text" class="form-control" id="input-location" aria-describedby="basic-addon3">
+                            <select class="form-select"  id="input-city">
+                                {% for option_city in form.city|dictsort:'data.label' %}
+                                    <option value="{{ option_city }}"></option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">{% trans "Search" %}</button>
 
