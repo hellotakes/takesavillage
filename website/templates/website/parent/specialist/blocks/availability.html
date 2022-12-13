@@ -8,16 +8,20 @@
             {% csrf_token %}
 
             {% bootstrap_field form.speciality layout='floating' %}
+            <div class="row">
+                <div class="col-md-8 mx-auto">
 
-            <div class="table-responsive" style="height: 20em;">
+                </div>
+            </div>
+            <div class="table-responsive" style="height: 16em;">
                 <table class="table table-sm">
                     <thead style="position: sticky; top: 0; background-color: white;">
                     <tr>
                         {% for day in days %}
                             <th scope="col">
                                 <div class="vstack">
-                                    <div> {{ day|date:'D' }}</div>
-                                    <div> {{ day|date:'M d' }}</div>
+                                    <div class="small-font"> {{ day|date:'D' }}</div>
+                                    <div class="small-font"> {{ day|date:'M d' }}</div>
                                 </div>
                             </th>
                         {% endfor %}
@@ -26,13 +30,13 @@
                     <tbody>
                     {% for slot in slots %}
                         <tr>
-                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.0 only %}</td>
-                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.1 only %}</td>
-                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.2 only %}</td>
-                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.3 only %}</td>
-                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.4 only %}</td>
-                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.5 only %}</td>
-                            <td>{% include "website/parent/specialist/blocks/slot.html" with slot=slot.6 only %}</td>
+                            <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.0 only %}</td>
+                            <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.1 only %}</td>
+                            <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.2 only %}</td>
+                            <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.3 only %}</td>
+                            <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.4 only %}</td>
+                            <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.5 only %}</td>
+                            <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.6 only %}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

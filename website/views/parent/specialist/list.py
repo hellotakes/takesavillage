@@ -2,6 +2,7 @@ import datetime
 from typing import Iterable
 
 from django import forms
+from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django_filters import FilterSet, BooleanFilter, CharFilter
 from django_filters.views import FilterView
@@ -13,6 +14,8 @@ from website.models.specialist import Specialist
 
 
 class SpecialistFilter(FilterSet):
+    location = CharFilter(field_name='address__city', lookup_expr='icontains', label=_('Location'))
+
     class Meta:
         model = Specialist
         fields = [

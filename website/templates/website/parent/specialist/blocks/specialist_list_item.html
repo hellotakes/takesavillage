@@ -1,49 +1,66 @@
 {% load static %}
 
-<div class="row">
-    <div class="col-7">
-        <div class="card mb-3" id="card-{{ item_number }}">
-            <div class="row">
-                <div class="col-2 align-self-center">
-                    <img src="{{ specialist.profile_photo.url }}" class="img-fluid" alt="">
+<div class="row  me-1">
+    <div class="card mb-3" id="card-{{ item_number }}">
+        <div class="row">
+            <div class="col-2 align-self-center">
+                <img src="{{ specialist.profile_photo.url }}" class="img-fluid" alt="">
+            </div>
+            <div class="col-6">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="text-reset stretched-link" href="{% url 'parent:specialist_detail' specialist.pk %}">{{ specialist.full_name }}</a>
+                        <small class="fs-6 fw-light ms-3">{% include 'website/parent/specialist/blocks/rank.html' with ranking=4.5 number_comments=125 %}</small>
+                    </h5>
+                    <h6 class="card-subtitle fw-normal mb-1">{{ specialist.speciality }}</h6>
+                    <h6 class="card-subtitle fw-normal mb-1">HypnoBirthing® Childbirth Educator</h6>
+                    <p class="card-text text-muted"><small>{{ specialist.address }}</small></p>
+                    <div
+                            class="map-marker"
+                            data-latitude="{{ specialist.address.latitude }}"
+                            data-longitude="{{ specialist.address.longitude }}"
+                            data-event="click"
+                            data-param="#card-{{ item_number }}"
+                    ></div>
                 </div>
-                <div class="col-6">
-                    <div class="card-body">
-                        <h5 class="card-title"><a class="text-reset stretched-link" href="{% url 'parent:specialist_detail' specialist.pk %}">{{ specialist.full_name }}</a></h5>
-                        <h6 class="card-subtitle fw-normal">{{ specialist.speciality }}</h6>
-                        <p class="card-text text-muted"><small>{{ specialist.address }}</small></p>
-                        <div
-                                class="map-marker"
-                                data-latitude="{{ specialist.address.latitude }}"
-                                data-longitude="{{ specialist.address.longitude }}"
-                                data-event="click"
-                                data-param="#card-{{ item_number }}"
-                        ></div>
-                    </div>
-                </div>
+            </div>
+
+            <div class="col-4 my-auto">
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        {% for day in days %}
+                            <th>
+                                <div class="vstack">
+                                    <div class="small-font"> {{ day|date:'D' }}</div>
+                                    <div class="small-font"> {{ day|date:'d' }}</div>
+                                </div>
+                            </th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for day_slots in slots %}
+                        {% if forloop.counter < 4 %}
+                            <tr>
+                                {% for slot in day_slots %}
+                                    <td class="small-font">
+                                        {% if slot %}
+                                            <button class="btn btn-outline-secondary btn-sm smaller-font">{{ slot.start|date:'H:i' }}</button>
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+
+                </table>
             </div>
         </div>
     </div>
-    <div class="col-5 my-auto">
-        <table class="table table-sm">
-            <tbody>
-                {% for day_slots in slots %}
-                    {% if forloop.counter < 4 %}
-                    <tr>
-                        {% for slot in day_slots %}
-                            <td>
-                                {% if slot %}
-                                    <button class="btn btn-outline-secondary btn-sm">{{ slot.start|date:'H:i' }}</button>
-                                {% else %}
-                                    -
-                                {% endif %}
-                            </td>
-                        {% endfor %}
-                    </tr>
-                    {% endif %}
-                {% endfor %}
-            </tbody>
 
-        </table>
-    </div>
+
 </div>

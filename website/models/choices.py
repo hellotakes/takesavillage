@@ -12,6 +12,7 @@ class Language(models.TextChoices):
     FRENCH = 'FR', _('French')
     ENGLISH = 'EN', _('English')
     DUTCH = 'NL', _('Dutch')
+    PORTUGUESE = 'PT', _('Portuguese')
 
 
 class Speciality(models.TextChoices):
