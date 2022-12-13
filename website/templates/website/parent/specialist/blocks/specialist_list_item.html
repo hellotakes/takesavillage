@@ -12,8 +12,8 @@
                         <a class="text-reset stretched-link" href="{% url 'parent:specialist_detail' specialist.pk %}">{{ specialist.full_name }}</a>
                         <small class="fs-6 fw-light ms-3">{% include 'website/parent/specialist/blocks/rank.html' with ranking=4.5 number_comments=125 %}</small>
                     </h5>
-                    <h6 class="card-subtitle fw-normal mb-1">{{ specialist.speciality }}</h6>
-                    <h6 class="card-subtitle fw-normal mb-1">HypnoBirthing® Childbirth Educator</h6>
+                    <h6 class="card-subtitle fw-normal mb-2">{{ specialist.speciality }}</h6>
+                    <h6 class="card-subtitle fw-normal mb-2">HypnoBirthing® Childbirth Educator</h6>
                     <p class="card-text text-muted"><small>{{ specialist.address }}</small></p>
                     <div
                             class="map-marker"

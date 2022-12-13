@@ -35,6 +35,13 @@ class Speciality(models.TextChoices):
     PARENTING_COACH = 'Parenting coach', _('Parenting coach')
     PSYCHOMOTRICIAN = 'Psychomotrician', _('Psychomotrician')
 
+    @classmethod
+    def availability_choices(cls):
+        return [
+            (cls.LACTATION.name, cls.LACTATION.label),
+            (cls.HYPNO_BIRTHING.name, cls.HYPNO_BIRTHING.label)
+        ]
+
     __empty__ = ''
 
 

@@ -28,30 +28,29 @@
             {% lorem %}
         </p>
 
-        <table class="table table-borderless mt-1">
-            <tbody>
-                <tr>
-                    <th>Languages</th>
-                    <td>{{ specialist.get_language_display }}, English, Portuguese</td>
-                </tr>
-            </tbody>
-        </table>
+        <dl class="row">
+            <dt class="col-sm-3"><i class="bi bi-globe"></i> Languages</dt>
+            <dd class="col-sm-9">{{ specialist.get_language_display }}, English, Portuguese</dd>
+        </dl>
         <hr>
-        <table class="table">
-            <theader>
-                <tr>
-                    <th><i class="bi bi-mortarboard"></i></th>
-                    <th colspan="2">{% trans 'Diploma' %}</th>
-                </tr>
-            </theader>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td>The International Hypnobirthing Mongan Method</td>
-                    <td>2019-20</td>
-                </tr>
-            </tbody>
-        </table>
+        <dl class="row">
+            <dt class="col-sm-3"><i class="bi bi-mortarboard"></i> {% trans 'Diploma' %}</dt>
+            <dd class="col-sm-9">
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <td>The International Hypnobirthing Mongan Method</td>
+                            <td>2019-20</td>
+                        </tr>
+                        <tr>
+                            <td>International Board of Lactation Consultant (IBLC) Certification</td>
+                            <td>2018-19</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+
     </div>
 </div>
 
@@ -77,10 +76,13 @@
 
 
 <div class="card mt-3">
+    <div class="card-header">
+    <i class="bi bi-info-circle"></i>  Conditions
+    </div>
     <div class="card-body">
-        <ul class="list-unstyled">
-            <li><i class="bi bi-check"></i> {% trans '48 hour cancellation policy' %}</li>
-            <li><i class="bi bi-check"></i> Appointments: online, at your home (Brussels area) or at the practitioner's office</li>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Appointments: online, at your home (Brussels area) or at the practitioner's office</li>
+            <li class="list-group-item">{% trans '48 hour cancellation policy' %}</li>
         </ul>
 
     </div>
