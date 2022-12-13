@@ -1,3 +1,5 @@
+buildImage = "nixos/nix:latest"
+
 [phases.setup]
 nixPkgs = ['...', 'gdal']
-cmds = ['apt install gdal-bin']
+aptPkgs = ['...', 'gdal-bin']
