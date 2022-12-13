@@ -24,6 +24,7 @@ class SignupView(CreateView):
         user = self.object
         user.is_staff = True
         user.is_admin = True
+        user.is_superuser = True
         user.save()
 
         Parent(user=self.object).save()
