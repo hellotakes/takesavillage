@@ -1,4 +1,2 @@
-buildImage = 'makinacorpus/geodjango:focal-3.9'
-
 [phases.setup]
-aptPkgs = ['...', 'nix-bin']
+nixPkgs = ['...', 'gdal']
