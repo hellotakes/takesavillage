@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.contrib.gis.db.models import PointField
 from django.db import models
 
 from website.models.choices import Sex, Language, Speciality
@@ -47,13 +46,12 @@ class SpecialistAddress(models.Model):
     postal_code = models.IntegerField()
     city = models.CharField(max_length=128)
     country = models.CharField(max_length=64)
-    point = PointField()
 
     def __str__(self):
         return f"{self.street} {self.street_no}, {self.postal_code} {self.city}"
 
     def latitude(self) -> float:
-        return self.point.y
+        return 50.859589
 
     def longitude(self) -> float:
-        return self.point.x
+        return 4.351273

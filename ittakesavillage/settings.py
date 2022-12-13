@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-krf(uu$ymleyye-#f0f9@n7uit&!g8saw)yd9ztv(%s9e)@2kh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,10 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
     'django_filters',
     'django_bootstrap5',
-    'leaflet',
     'website',
 ]
 
@@ -124,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 # Media
 MEDIA_ROOT = BASE_DIR / 'uploads/'
