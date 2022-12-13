@@ -1,5 +1,0 @@
-buildImage = "nixos/nix:latest"
-
-[phases.setup]
-nixPkgs = ['...', 'gdal']
-aptPkgs = ['...', 'gdal']
