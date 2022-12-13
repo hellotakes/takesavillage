@@ -21,6 +21,10 @@ class SignupView(CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        user = self.object
+        user.is_staff = True
+        user.is_admin = True
+        user.save()
 
         Parent(user=self.object).save()
 
