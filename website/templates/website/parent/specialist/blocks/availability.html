@@ -14,20 +14,24 @@
                 </div>
             </div>
             <div class="table-responsive" style="height: 16em;">
-                <table class="table table-sm">
+                <table class="table table-sm" style="table-layout: fixed">
                     <thead style="position: sticky; top: 0; background-color: white;">
                     <tr>
                         {% for day in days %}
-                            <th scope="col">
-                                <div class="vstack">
-                                    <div class="small-font"> {{ day|date:'D' }}</div>
-                                    <div class="small-font"> {{ day|date:'M d' }}</div>
-                                </div>
+                            <th scope="col" class="small-font">
+                                {{ day|date:'D' }}
                             </th>
                         {% endfor %}
                     </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            {% for day in days %}
+                                <th scope="col" class="small-font">
+                                    {{ day|date:'M d' }}
+                                </th>
+                            {% endfor %}
+                        </tr>
                     {% for slot in slots %}
                         <tr>
                             <td class="smaller-font">{% include "website/parent/specialist/blocks/slot.html" with slot=slot.0 only %}</td>
