@@ -4,9 +4,10 @@ div.home {
 }
 
 .small-font {
-    font-size: 0.7em;
+    font-size: 0.65em;
 }
 
 .smaller-font {
-    font-size: 0.9em;
+    font-size: 0.85em;
+    padding: 1px;
 }

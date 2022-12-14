@@ -3,14 +3,27 @@
     {% bootstrap_field form.speciality layout='floating' %}
     {% bootstrap_field form.location layout='floating' %}
     {% bootstrap_field form.language layout='floating' %}
-    <p>Appointments</p>
-    {% bootstrap_field form.physical %}
-    {% bootstrap_field form.online %}
+    <div class="row mb-3">
+        <div class="dropdown">
+            <div class="btn-group w-100">
+                <button class="btn btn-outline-secondary" type="button">
+                    Appointments
+                </button>
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="ms-2">{% bootstrap_field form.physical %}</li>
+                    <li class="ms-2">{% bootstrap_field form.online %}</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
     {% bootstrap_field form.sex layout='floating' %}
 
     <button type="submit" class="btn btn-primary">
         <i class="bi bi-search"></i>
     </button>
 </form>
-
-How does customers pay

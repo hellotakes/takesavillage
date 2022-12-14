@@ -140,3 +140,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BOOTSTRAP5 = {
     "required_css_class": "required",
 }
+
+
+# Django filters
+# https://django-filter.readthedocs.io/en/stable/ref/settings.html
+FILTERS_EMPTY_CHOICE_LABEL = ''
+

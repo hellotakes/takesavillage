@@ -26,38 +26,41 @@
             </div>
 
             <div class="col-4 my-auto">
-                <table class="table table-sm">
-                    <thead>
-                    <tr>
-                        {% for day in days %}
-                            <th>
-                                <div class="vstack">
-                                    <div class="small-font"> {{ day|date:'D' }}</div>
-                                    <div class="small-font"> {{ day|date:'d' }}</div>
-                                </div>
-                            </th>
-                        {% endfor %}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for day_slots in slots %}
-                        {% if forloop.counter < 4 %}
-                            <tr>
-                                {% for slot in day_slots %}
-                                    <td class="small-font">
-                                        {% if slot %}
-                                            <button class="btn btn-outline-secondary btn-sm smaller-font">{{ slot.start|date:'H:i' }}</button>
-                                        {% else %}
-                                            -
-                                        {% endif %}
-                                    </td>
-                                {% endfor %}
-                            </tr>
-                        {% endif %}
-                    {% endfor %}
-                    </tbody>
+                <div class="table-responsive">
 
-                </table>
+                    <table class="table table-sm ">
+                        <thead>
+                        <tr>
+                            {% for day in days %}
+                                <th>
+                                    <div class="vstack">
+                                        <div class="small-font"> {{ day|date:'D' }}</div>
+                                        <div class="small-font"> {{ day|date:'d' }}</div>
+                                    </div>
+                                </th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for day_slots in slots %}
+                            {% if forloop.counter < 4 %}
+                                <tr>
+                                    {% for slot in day_slots %}
+                                        <td class="small-font">
+                                            {% if slot %}
+                                                <button class="btn btn-outline-secondary btn-sm smaller-font">{{ slot.start|date:'H:i' }}</button>
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
         </div>
     </div>
