@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class CaregiverSpeciality(models.Model):
+class CaregiverDiploma(models.Model):
     caregiver = models.ForeignKey('website.Caregiver', on_delete=models.CASCADE)
     name = models.CharField(max_length=240)
     year = models.PositiveIntegerField()

@@ -51,3 +51,13 @@ class City(models.TextChoices):
     GHENT = 'Ghent', _('Ghent')
 
     __empty__ = ''
+
+
+class WeekDays(models.TextChoices):
+    MONDAY = "Monday", _("Monday")
+    TUESDAY = "Tuesday", _("Tuesday")
+    WEDNESDAY = "Wednesday", _("Wednesday")
+    THURSDAY = "Thursday", _("Thursday")
+    FRIDAY = "Friday", _("Friday")
+    SATURDAY = "Saturday", _("Saturday")
+    SUNDAY = "Sunday", _("Sunday")

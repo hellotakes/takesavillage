@@ -5,19 +5,13 @@ from django.db import models
 
 
 class Appointment(models.Model):
-    specialist = models.ForeignKey("website.models.caregiver.Caregiver", on_delete=models.PROTECT)
+    specialist = models.ForeignKey("website.Caregiver", on_delete=models.PROTECT)
     parent = models.ForeignKey("website.Parent", on_delete=models.PROTECT)
-    from_time = models.DateTimeField()
-    duration = models.DurationField()
+
+    start = models.DateTimeField()
+    end = models.DateTimeField()
+
     booked_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.specialist.full_name}  {self.from_time} ({self.parent})"
-
-    @property
-    def end(self) -> 'datetime.datetime':
-        return self.from_time + self.duration
-
-    @property
-    def between(self) -> Tuple['datetime.datetime', 'datetime.datetime']:
-        return self.from_time, self.end
+        return f"{self.parent}   {self.start} - {self.end}"

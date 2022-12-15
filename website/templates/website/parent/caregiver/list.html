@@ -5,7 +5,7 @@
 <div class="row min-vh-100">
     <div class="col-md-6 mt-3 order-md-1 vh-100 overflow-auto">
         {% for specialist in filter.qs %}
-            {% include "website/parent/specialist/blocks/specialist_list_item.html" with specialist=specialist item_number=forloop.counter slots=slots_by_specialist.0 days=days only %}
+            {% include "website/parent/caregiver/blocks/specialist_list_item.html" with specialist=specialist item_number=forloop.counter slots=slots_by_specialist.0 days=days only %}
         {% endfor %}
 
         <div class="card mb-3" id="card-2">
@@ -143,7 +143,7 @@
     </div>
     <div class="col-md-2 order-md-0 vh-100 bg-light">
         <div class="sticky-md-top pt-3">
-            {% include "website/parent/specialist/blocks/specialist_list_search.html" with form=filter.form %}
+            {% include "website/parent/caregiver/blocks/specialist_list_search.html" with form=filter.form %}
         </div>
 
     </div>

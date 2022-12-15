@@ -12,7 +12,7 @@ from website.models.specialist import Specialist
 
 
 class AppointmentCreateView(LoginRequiredMixin, FormView, SuccessMessageMixin):
-    template_name = "website/parent/specialist/detail.html"
+    template_name = "website/parent/caregiver/detail.html"
 
     form_class = AppointmentForm
 
