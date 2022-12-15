@@ -6,7 +6,7 @@ from django.db import models
 
 
 class BusinessHours(models.Model):
-    specialist = models.ForeignKey('website.Specialist', on_delete=models.CASCADE)
+    specialist = models.ForeignKey('website.models.caregiver.Caregiver', on_delete=models.CASCADE)
     day_of_week = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(7)])
     session_duration = models.DurationField()
     morning_start = models.TimeField()

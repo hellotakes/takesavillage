@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Appointment(models.Model):
-    specialist = models.ForeignKey("website.Specialist", on_delete=models.PROTECT)
+    specialist = models.ForeignKey("website.models.caregiver.Caregiver", on_delete=models.PROTECT)
     parent = models.ForeignKey("website.Parent", on_delete=models.PROTECT)
     from_time = models.DateTimeField()
     duration = models.DurationField()
