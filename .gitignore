@@ -1,6 +1,9 @@
 # Media
 uploads/
 
+# Docker
+data/
+
 # Intellij stuff
 ittakesavillage.iml
 

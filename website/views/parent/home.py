@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from website.forms.parent.specialists import SearchSpecialistForm
+from website.filters.parent.caregiver import CaregiverFilter
 
 
 class HomeView(TemplateView):
@@ -8,5 +8,5 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = SearchSpecialistForm()
+        context['form'] = CaregiverFilter()
         return context

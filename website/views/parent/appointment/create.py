@@ -8,7 +8,7 @@ from django.views.generic import FormView
 
 from website.forms.parent.appointment import AppointmentForm
 from website.models.appointment import Appointment
-from website.models.specialist import Specialist
+from website.models.caregiver import Caregiver
 
 
 class AppointmentCreateView(LoginRequiredMixin, FormView, SuccessMessageMixin):
@@ -21,8 +21,8 @@ class AppointmentCreateView(LoginRequiredMixin, FormView, SuccessMessageMixin):
 
     def form_valid(self, form):
         Appointment(
-            specialist=Specialist.objects.get(pk=self.kwargs['pk']),
-            client=self.request.user.client,
+            specialist=Caregiver.objects.get(pk=self.kwargs['pk']),
+            parent=self.request.user.parent,
             from_time=form.cleaned_data['slot'],
             duration=datetime.timedelta(minutes=30),
         ).save()

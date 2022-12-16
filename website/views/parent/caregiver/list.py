@@ -1,40 +1,9 @@
 import datetime
 
-from django import forms
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from django_filters import FilterSet, BooleanFilter, CharFilter
 from django_filters.views import FilterView
 
+from website.filters.parent.caregiver import CaregiverFilter
 from website.models.caregiver import Caregiver
-
-
-class CaregiverFilter(FilterSet):
-    location = CharFilter(field_name='address__city', lookup_expr='icontains', label=_('Location'))
-
-    class Meta:
-        model = Caregiver
-        fields = [
-            'speciality',
-            'physical',
-            'online',
-            'language',
-            'sex'
-        ]
-        filter_overrides = {
-            models.CharField: {
-                'filter_class': CharFilter,
-                'extra': lambda f: {
-                    'lookup_expr': 'icontains',
-                },
-            },
-            models.BooleanField: {
-                'filter_class': BooleanFilter,
-                'extra': lambda f: {
-                    'widget': forms.CheckboxInput,
-                },
-            },
-        }
 
 
 class CaregiverListView(FilterView):
