@@ -58,3 +58,12 @@ class Caregiver(models.Model):
     def __str__(self):
         return f"{self.last_name} {self.first_name}"
 
+    @property
+    def min_rate(self) -> float:
+        specialities = self.specialities.all()
+        return min((speciality.rate for speciality in specialities), default=0)
+
+    @property
+    def max_rate(self) -> float:
+        specialities = self.specialities.all()
+        return max((speciality.rate for speciality in specialities), default=0)
