@@ -1,7 +1,22 @@
+import datetime
+
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from django.db.models import Prefetch
 
 from website.models.choices import Sex, Language
+
+
+class CaregiverManager(models.Manager):
+    def with_available_consultation_slots(self):
+        _from = datetime.date.today()
+        _to = _from + datetime.timedelta(days=7)
+        return self.prefetch_related(
+            Prefetch(
+                "consultation_slots",
+                to_attr="available_consultation_slots"
+            )
+        )
 
 
 class Caregiver(models.Model):
@@ -33,6 +48,8 @@ class Caregiver(models.Model):
 
     ranking = models.FloatField()
     number_comments = models.PositiveIntegerField()
+
+    objects = CaregiverManager()
 
     @property
     def full_name(self) -> str:

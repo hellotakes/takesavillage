@@ -2,7 +2,7 @@ from django.db import models
 
 
 class CaregiverDiploma(models.Model):
-    caregiver = models.ForeignKey('website.Caregiver', on_delete=models.CASCADE)
+    caregiver = models.ForeignKey('website.Caregiver', on_delete=models.CASCADE, related_name='diplomas')
     name = models.CharField(max_length=240)
     year = models.PositiveIntegerField()
 

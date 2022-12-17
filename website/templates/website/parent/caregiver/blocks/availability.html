@@ -4,7 +4,7 @@
     <div class="card-body">
         <h4 class="card-title"><i class="bi bi-currency-euro"></i> 70 - 120</h4>
         <hr class="border border-dark opacity-75">
-        <form action="{% url 'parent:appointment_create' specialist.pk %}" method="post">
+        <form action="{% url 'parent:appointment_create' caregiver.pk %}" method="post">
             {% csrf_token %}
 
             {% bootstrap_field form.speciality layout='floating' %}

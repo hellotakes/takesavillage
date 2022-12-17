@@ -1,18 +1,20 @@
 {% load i18n %}
 <h4>
-    {{ specialist.full_name }}
-    <small class="fs-6 fw-light ms-3">{% include 'website/parent/caregiver/blocks/rank.html' with ranking=4.5 number_comments=125 %}</small>
+    {{ caregiver.full_name }}
+    <small class="fs-6 fw-light ms-3">{% include 'website/parent/caregiver/blocks/rank.html' with ranking=caregiver.ranking number_comments=caregiver.number_comments %}</small>
 </h4>
-<span class="badge rounded-pill text-bg-info">{{ specialist.speciality }}</span>
-<span class="badge rounded-pill text-bg-info">HypnoBirthing® Childbirth Educator</span>
-<p><i class="bi bi-geo-alt-fill"></i> {{ specialist.address }}</p>
+
+{% for speciality in caregiver.specialities.all %}
+    <span class="badge rounded-pill text-bg-info">{{speciality.speciality}}</span>
+{% endfor %}
+
+<p><i class="bi bi-geo-alt-fill"></i> {{ caregiver.address }}</p>
 
 
 <div class="ratio ratio-16x9">
     <iframe
-            src="https://www.youtube.com/embed/G1Pp3yespPQ"
+            src="{{ caregiver.profile_video}}"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
     </iframe>
@@ -24,28 +26,35 @@
     </div>
     <div class="card-body">
         <p class="card-text">
-            {{ specialist.description }}
-            {% lorem %}
+            {{ caregiver.description }}
         </p>
 
         <dl class="row">
             <dt class="col-sm-4"><i class="bi bi-globe"></i> Languages</dt>
-            <dd class="col-sm-8">{{ specialist.get_language_display }}, English, Portuguese</dd>
+            <dd class="col-sm-8">
+                {% for language in caregiver.languages %}
+                    {{ language }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </dd>
         </dl>
+
         <hr>
+
         <dl class="row">
             <dt class="col-sm-4"><i class="bi bi-mortarboard"></i> {% trans 'Diploma' %}</dt>
             <dd class="col-sm-8">
                 <table class="table table-sm">
                     <tbody>
+                        {% for diploma in caregiver.diplomas.all %}
                         <tr>
-                            <td>The International Hypnobirthing Mongan Method</td>
-                            <td>2019-20</td>
+                            <td>{{ diploma.name }}</td>
+                            <td>{{ diploma.year }}</td>
                         </tr>
+                        {% empty %}
                         <tr>
-                            <td>International Board of Lactation Consultant (IBLC) Certification</td>
-                            <td>2018-19</td>
+                            <td>-</td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </dd>
@@ -61,14 +70,12 @@
     <div class="card-body">
         <table class="table ">
             <tbody>
+            {% for speciality in caregiver.specialities.all %}
                 <tr>
-                    <td>{{ specialist.speciality }}</td>
-                    <td>70 <i class="bi bi-currency-euro"></i></td>
+                    <td>{{ speciality.speciality }}</td>
+                    <td>{{ speciality.rate|floatformat }} <i class="bi bi-currency-euro"></i></td>
                 </tr>
-                <tr>
-                    <td>HypnoBirthing® Childbirth Educator</td>
-                    <td>120 <i class="bi bi-currency-euro"></i></td>
-                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
@@ -81,8 +88,9 @@
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Appointments: online, at your home (Brussels area) or at the practitioner's office</li>
-            <li class="list-group-item">{% trans '48 hour cancellation policy' %}</li>
+            {% for condition in caregiver.conditions %}
+            <li class="list-group-item">{{ condition }}</li>
+            {% endfor %}
         </ul>
 
     </div>

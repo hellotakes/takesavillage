@@ -10,7 +10,7 @@ class CaregiverDetailView(DetailView):
     template_name = "website/parent/caregiver/detail.html"
     model = Caregiver
 
-    context_object_name = "specialist"
+    context_object_name = "caregiver"
 
     def get_context_data(self, **kwargs):
         return {
