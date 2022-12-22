@@ -13,3 +13,6 @@ django-leaflet==0.28.3
 django-bootstrap5==22.2
 
 gunicorn
+
+mypy==0.991
+django-stubs==1.13.1

@@ -1,4 +1,5 @@
 import datetime
+from decimal import Decimal
 
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
@@ -59,11 +60,11 @@ class Caregiver(models.Model):
         return f"{self.last_name} {self.first_name}"
 
     @property
-    def min_rate(self) -> float:
+    def min_rate(self) -> Decimal:
         specialities = self.specialities.all()
-        return min((speciality.rate for speciality in specialities), default=0)
+        return min((speciality.rate for speciality in specialities), default=Decimal(0))
 
     @property
-    def max_rate(self) -> float:
+    def max_rate(self) -> Decimal:
         specialities = self.specialities.all()
-        return max((speciality.rate for speciality in specialities), default=0)
+        return max((speciality.rate for speciality in specialities), default=Decimal(0))
