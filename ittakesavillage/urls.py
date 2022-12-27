@@ -23,6 +23,7 @@ from django.urls import URLPattern, URLResolver, path, include
 urlpatterns: List[Union['URLPattern', 'URLResolver']] = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
+
 ]
 
 if settings.DEBUG:

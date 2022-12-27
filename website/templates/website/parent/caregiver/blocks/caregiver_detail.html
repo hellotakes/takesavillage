@@ -1,14 +1,21 @@
-{% load i18n %}
-<h4>
-    {{ caregiver.full_name }}
-    <small class="fs-6 fw-light ms-3">{% include 'website/parent/caregiver/blocks/rank.html' with ranking=caregiver.ranking number_comments=caregiver.number_comments %}</small>
-</h4>
+{% load i18n static %}
+<div class="row mb-md-3">
+    <div class="col-md-3">
+        <img src="{{ caregiver.profile_photo.url }}" alt="" class="img-fluid">
+    </div>
+    <div class="col-md-9">
+        <h4>
+            {{ caregiver.full_name }}
+            <small class="fs-6 fw-light ms-3">{% include 'website/parent/caregiver/blocks/rank.html' with ranking=caregiver.ranking number_comments=caregiver.number_comments %}</small>
+        </h4>
 
-{% for speciality in caregiver.specialities.all %}
-    <span class="badge rounded-pill text-bg-info">{{speciality.speciality}}</span>
-{% endfor %}
+        {% for speciality in caregiver.specialities.all %}
+            <span class="badge rounded-pill text-bg-info">{{speciality.speciality}}</span>
+        {% endfor %}
 
-<p><i class="bi bi-geo-alt-fill"></i> {{ caregiver.address }}</p>
+        <p><i class="bi bi-geo-alt-fill"></i> {{ caregiver.address }}</p>
+    </div>
+</div>
 
 
 <div class="ratio ratio-16x9">
