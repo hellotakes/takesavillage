@@ -4,21 +4,28 @@
     <div class="card mb-3" id="card-{{ item_number }}">
         <div class="row">
             <div class="col-2 align-self-center">
-                <img src="{{ specialist.profile_photo.url }}" class="img-fluid" alt="">
+                <a href="{% url 'parent:caregiver_detail' caregiver.pk %}">
+                    <img src="{{ caregiver.profile_photo.url }}" class="img-fluid" alt="">
+                </a>
             </div>
             <div class="col-6">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a class="text-reset stretched-link" href="{% url 'parent:caregiver_detail' specialist.pk %}">{{ specialist.full_name }}</a>
+                        <a class="text-reset" href="{% url 'parent:caregiver_detail' caregiver.pk %}">{{ caregiver.full_name }}</a>
                         <small class="fs-6 fw-light ms-3">{% include 'website/parent/caregiver/blocks/rank.html' with ranking=4.5 number_comments=125 %}</small>
                     </h5>
-                    <h6 class="card-subtitle fw-normal mb-2">{{ specialist.speciality }}</h6>
-                    <h6 class="card-subtitle fw-normal mb-2">HypnoBirthing® Childbirth Educator</h6>
-                    <p class="card-text text-muted"><small>{{ specialist.address }}</small></p>
+                    <h6 class="card-subtitle fw-normal mb-2">{{ caregiver.speciality }}</h6>
+                    {% for speciality in caregiver.specialities.all %}
+                    <h6 class="card-subtitle fw-normal mb-2">
+                        {{ speciality.speciality }}
+                        <span data-bs-toggle="tooltip" data-bs-title="The {{ speciality.speciality }} is ..."><i class="bi bi-info-circle-fill"></i></span>
+                    </h6>
+                    {% endfor %}
+                    <p class="card-text text-muted"><small>{{ caregiver.address }}</small></p>
                     <div
                             class="map-marker"
-                            data-latitude="{{ specialist.address.latitude }}"
-                            data-longitude="{{ specialist.address.longitude }}"
+                            data-latitude="{{ caregiver.address.latitude }}"
+                            data-longitude="{{ caregiver.address.longitude }}"
                             data-event="click"
                             data-param="#card-{{ item_number }}"
                     ></div>
