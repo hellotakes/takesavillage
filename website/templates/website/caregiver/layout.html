@@ -9,6 +9,7 @@
     {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'website/bootstrap/css/bootstrap.css' %}" >
     <link rel="stylesheet" href="{% static 'website/bootstrap/icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'website/choicesjs/css/choices.css' %}">
     <link rel="stylesheet" href="{% static 'website/fullcalendar/main.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/specialist.css' %}">
     {% endblock %}
@@ -17,12 +18,12 @@
 <body>
 
 {% block navbar %}
-    {% include "website/specialist/blocks/navbar.html" %}
+    {% include "website/caregiver/blocks/navbar.html" %}
 {% endblock %}
 
 <div class="row">
     <div class="col-md-4 mx-auto">
-        {% include "website/specialist/blocks/messages.html" %}
+        {% include "website/caregiver/blocks/messages.html" %}
     </div>
 </div>
 
@@ -34,8 +35,10 @@
 
 {% block javascript %}
 <script src="{% static 'website/bootstrap/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'website/choicesjs/js/choices.js' %}"></script>
 <script src="{% static 'website/fullcalendar/main.js' %}"></script>
 <script src="{% static 'website/js/calendar.js' %}"></script>
+<script src="{% static 'website/js/form.js' %}"></script>
 {% endblock javascript %}
 </body>
 

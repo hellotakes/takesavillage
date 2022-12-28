@@ -1,7 +1,7 @@
 {% load i18n %}
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-        <a href="{% url 'specialist:home' %}" class="navbar-brand"><i class="bi bi-houses-fill"></i> It Takes A Village</a>
+        <a href="{% url 'caregiver:home' %}" class="navbar-brand"><i class="bi bi-houses-fill"></i> It Takes A Village</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,10 +21,10 @@
                         <a href="{% url 'parent:home' %}" class="nav-link">{% trans "I am a parent"%} <i class="bi bi-box-arrow-in-right"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'specialist:login' %}" class="nav-link">{% trans "Log in" %}</a>
+                        <a href="#" class="nav-link">{% trans "Log in" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'specialist:sign_up' %}" class="nav-link active">{% trans "Join us" %}</a>
+                        <a href="{% url 'caregiver:signup' %}" class="nav-link active">{% trans "Join us" %}</a>
                     </li>
                 {% endif %}
 
