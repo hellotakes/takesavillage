@@ -32,10 +32,9 @@ function addMarker(map, lat, long) {
 
 function addEventOnMarker(marker, eventName, param) {
     marker.on(eventName, function(){
-        const selectedCard = document.querySelector("card.border-primary");
-        if (selectedCard != null) {
-            selectedCard.classList.remove("border-primary");
-        }
+        document.querySelectorAll(".border-primary").forEach((e, number, parent) => {
+            e.classList.remove("border-primary");
+        });
 
         document.querySelector(param).classList.add("border-primary");
     });

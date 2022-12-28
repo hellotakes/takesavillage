@@ -1,4 +1,5 @@
 from decimal import Decimal
+from typing import List
 
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
@@ -43,7 +44,7 @@ class Caregiver(models.Model):
     online = models.BooleanField(default=False)
     conditions = ArrayField(
         models.CharField(max_length=128),
-        size=5
+        size=5,
     )
 
     ranking = models.FloatField()
@@ -67,3 +68,7 @@ class Caregiver(models.Model):
     def max_rate(self) -> Decimal:
         specialities = self.specialities.all()
         return max((speciality.rate for speciality in specialities), default=Decimal(0))
+
+    @property
+    def languages_names(self) -> List[str]:
+        return [value for label, value in Language.choices if label in self.languages]
