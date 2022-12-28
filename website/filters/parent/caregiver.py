@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django_filters import FilterSet, CharFilter, BooleanFilter, ChoiceFilter, MultipleChoiceFilter
 
 from website.models.caregiver import Caregiver
-from website.models.choices import Language, Speciality
+from website.models.choices import Language, Speciality, City
 
 
 class CaregiverFilter(FilterSet):
@@ -25,6 +25,11 @@ class CaregiverFilter(FilterSet):
         method='filter_by_appointments',
         label=_('Appointments'),
         widget=forms.SelectMultiple(attrs={"data-placeholder": _('Appointments')})
+    )
+    city = ChoiceFilter(
+        choices=City.choices,
+        method='filter_by_city',
+        label=_('City'),
     )
 
     class Meta:
@@ -54,6 +59,9 @@ class CaregiverFilter(FilterSet):
 
     def filter_by_speciality(self, queryset, name, value):
         return queryset.filter(specialities__speciality=value)
+
+    def filter_by_city(self, queryset, name, value):
+        return queryset.filter(address__city=value)
 
     def filter_by_appointments(self, queryset, name, value):
         return queryset

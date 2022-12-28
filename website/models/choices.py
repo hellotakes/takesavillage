@@ -42,15 +42,11 @@ class Speciality(models.TextChoices):
             (cls.HYPNO_BIRTHING.name, cls.HYPNO_BIRTHING.label)
         ]
 
-    __empty__ = ''
-
 
 class City(models.TextChoices):
     BRUSSELS = 'Brussels', _('Brussels')
     ANTWERPEN = 'Antwerpen', _('Antwerpen')
     GHENT = 'Ghent', _('Ghent')
-
-    __empty__ = ''
 
 
 class WeekDays(models.TextChoices):

@@ -16,9 +16,8 @@
                     </h5>
                     <h6 class="card-subtitle fw-normal mb-2">{{ caregiver.speciality }}</h6>
                     {% for speciality in caregiver.specialities.all %}
-                    <h6 class="card-subtitle fw-normal mb-2">
+                    <h6 class="card-subtitle fw-normal mb-2" data-bs-toggle="tooltip" data-bs-title="The {{ speciality.speciality }} is ...">
                         {{ speciality.speciality }}
-                        <span data-bs-toggle="tooltip" data-bs-title="The {{ speciality.speciality }} is ..."><i class="bi bi-info-circle-fill"></i></span>
                     </h6>
                     {% endfor %}
                     <p class="card-text text-muted"><small>{{ caregiver.address }}</small></p>
