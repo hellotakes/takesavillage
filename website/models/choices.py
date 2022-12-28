@@ -26,7 +26,6 @@ class Speciality(models.TextChoices):
     PEDIATRICIAN = 'Pediatrician', _('Pediatrician')
     PERINATAL_PSYCHOLOGIST = 'Perinatal psychologist', _('Perinatal psychologist')
     PHYSICAL_THERAPIST = 'Physical therapist', _('Physical therapist')
-    PERIADTRICIAN = 'Periadtrician', _('Periadtrician')
     PRE_POST_NATAL_YOGA_TEACHER = 'Pre/post natal yoga teacher', _('Pre/post natal yoga teacher')
     PRE_POST_NATAL_MASSAGE = 'Pre/post natal massage', _('Pre/post natal massage')
     BABY_MASSAGE = 'Baby massage', _('Baby massage')
