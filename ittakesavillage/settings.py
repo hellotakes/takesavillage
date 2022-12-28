@@ -14,7 +14,10 @@ import os
 from pathlib import Path
 
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, os.environ.get('DEBUG', False)),
+    SECRET_KEY=(str, os.environ.get('SECRET_KEY', 'dsfqsdg4dfg7zdfg1qsd4gf')),
+    DATABASE_URL=(str, os.environ.get('DATABASE_URL', ''))
+
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,10 +31,10 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY') or os.environ['SECRET_KEY']
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG') or (os.environ['DEBUG'] == 'True')
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app/', 'https://*.127.0.0.1']
@@ -102,7 +105,7 @@ WSGI_APPLICATION = 'ittakesavillage.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db() or env.db(os.environ['DATABASE_URL']),
+    'default': env.db(),
 }
 
 
