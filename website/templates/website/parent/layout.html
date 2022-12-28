@@ -9,6 +9,7 @@
     {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'website/bootstrap/css/bootstrap.css' %}" >
     <link rel="stylesheet" href="{% static 'website/bootstrap/icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'website/choicesjs/css/choices.css' %}">
     <link rel="stylesheet" href="{% static 'website/leaflet/leaflet.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/parent.css' %}">
     {% endblock %}
@@ -52,6 +53,8 @@
 {% block javascript %}
 <script src="{% static 'website/bootstrap/js/bootstrap.bundle.js' %}"></script>
 <script src="{% static 'website/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'website/choicesjs/js/choices.js' %}"></script>
+<script src="{% static 'website/js/form.js' %}"></script>
 <script src="{% static 'website/js/map.js' %}"></script>
 {% endblock javascript %}
 </body>
