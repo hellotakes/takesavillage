@@ -1,5 +1,23 @@
 [
   {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$VDfx8P4PJr6etNlhsytnrD$s/9K2X10NygltZFmWHsrUgN5YOg6J+bsWhKv2CmZ/iE=",
+      "last_login": "2022-12-28T17:13:23.789Z",
+      "is_superuser": true,
+      "username": "ndizera",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-12-16T18:59:26.198Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
     "model": "website.caregiverconsultationslot",
     "pk": 1,
     "fields": {
