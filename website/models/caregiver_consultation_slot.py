@@ -15,11 +15,11 @@ class CaregiverConsultationSlot(models.Model):
 
     def numeric_iso_week_day(self) -> int:
         return {
-            WeekDays.MONDAY.name: 1,
-            WeekDays.TUESDAY.name: 2,
-            WeekDays.WEDNESDAY.name: 3,
-            WeekDays.THURSDAY.name: 5,
-            WeekDays.FRIDAY.name: 5,
-            WeekDays.SATURDAY.name: 6,
-            WeekDays.SUNDAY.name: 7,
+            WeekDays.MONDAY.value: 1,
+            WeekDays.TUESDAY.value: 2,
+            WeekDays.WEDNESDAY.value: 3,
+            WeekDays.THURSDAY.value: 5,
+            WeekDays.FRIDAY.value: 5,
+            WeekDays.SATURDAY.value: 6,
+            WeekDays.SUNDAY.value: 7,
         }[self.week_day]

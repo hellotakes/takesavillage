@@ -1,4 +1,5 @@
 {% load static %}
+{% load parent_extras %}
 
 <div class="row  me-1">
     <div class="card mb-3" id="card-{{ item_number }}">
@@ -32,41 +33,9 @@
             </div>
 
             <div class="col-4 my-auto">
-                <div class="table-responsive">
 
-                    <table class="table table-sm ">
-                        <thead>
-                        <tr>
-                            {% for day in days %}
-                                <th>
-                                    <div class="vstack">
-                                        <div class="small-font"> {{ day|date:'D' }}</div>
-                                        <div class="small-font"> {{ day|date:'d' }}</div>
-                                    </div>
-                                </th>
-                            {% endfor %}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for day_slots in slots %}
-                            {% if forloop.counter < 4 %}
-                                <tr>
-                                    {% for slot in day_slots %}
-                                        <td class="small-font">
-                                            {% if slot %}
-                                                <button class="btn btn-outline-secondary btn-sm smaller-font">{{ slot.start|date:'H:i' }}</button>
-                                            {% else %}
-                                                -
-                                            {% endif %}
-                                        </td>
-                                    {% endfor %}
-                                </tr>
-                            {% endif %}
-                        {% endfor %}
-                        </tbody>
+                    {% show_appointment_calendar caregiver.consultation_slots %}
 
-                    </table>
-                </div>
             </div>
         </div>
     </div>

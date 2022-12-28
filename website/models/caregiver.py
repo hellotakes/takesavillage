@@ -1,21 +1,20 @@
-import datetime
 from decimal import Decimal
 
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.db.models import Prefetch
 
+from website.models.caregiver_consultation_slot import CaregiverConsultationSlot
 from website.models.choices import Sex, Language
 
 
 class CaregiverManager(models.Manager):
-    def with_available_consultation_slots(self):
-        _from = datetime.date.today()
-        _to = _from + datetime.timedelta(days=7)
+    def with_consultation_slots(self):
         return self.prefetch_related(
             Prefetch(
                 "consultation_slots",
-                to_attr="available_consultation_slots"
+                queryset=CaregiverConsultationSlot.objects.order_by('week_day', 'start'),
+                to_attr="available_consultation_slots",
             )
         )
 

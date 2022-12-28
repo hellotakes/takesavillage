@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% load parent_extras %}
 <div class="card">
     <div class="card-body">
         <h4 class="card-title"><i class="bi bi-currency-euro"></i> {{ caregiver.min_rate|floatformat }} - {{ caregiver.max_rate|floatformat }}</h4>
@@ -15,40 +16,7 @@
 
                 </div>
             </div>
-            <div class="table-responsive" style="height: 16em;">
-                <table class="table table-sm" style="table-layout: fixed">
-                    <thead style="position: sticky; top: 0; background-color: white;">
-                    <tr>
-                        {% for day in days %}
-                            <th scope="col" class="small-font">
-                                {{ day|date:'D' }}
-                            </th>
-                        {% endfor %}
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {% for day in days %}
-                                <th scope="col" class="small-font">
-                                    {{ day|date:'M d' }}
-                                </th>
-                            {% endfor %}
-                        </tr>
-                    {% for slot in slots %}
-                        <tr>
-                            <td class="smaller-font">{% include "website/parent/caregiver/blocks/slot.html" with slot=slot.0 only %}</td>
-                            <td class="smaller-font">{% include "website/parent/caregiver/blocks/slot.html" with slot=slot.1 only %}</td>
-                            <td class="smaller-font">{% include "website/parent/caregiver/blocks/slot.html" with slot=slot.2 only %}</td>
-                            <td class="smaller-font">{% include "website/parent/caregiver/blocks/slot.html" with slot=slot.3 only %}</td>
-                            <td class="smaller-font">{% include "website/parent/caregiver/blocks/slot.html" with slot=slot.4 only %}</td>
-                            <td class="smaller-font">{% include "website/parent/caregiver/blocks/slot.html" with slot=slot.5 only %}</td>
-                            <td class="smaller-font">{% include "website/parent/caregiver/blocks/slot.html" with slot=slot.6 only %}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-
-                </table>
-            </div>
+            {% show_appointment_calendar caregiver.consultation_slots %}
             <hr class="border border-primary opacity-75">
             <button type="submit" class="btn btn-primary w-100">{% trans "Make an appointment" %}</button>
         </form>

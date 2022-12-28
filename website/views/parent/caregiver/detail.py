@@ -12,6 +12,9 @@ class CaregiverDetailView(DetailView):
 
     context_object_name = "caregiver"
 
+    def get_queryset(self):
+        return Caregiver.objects.with_consultation_slots()
+
     def get_context_data(self, **kwargs):
         return {
             'slots': [],
