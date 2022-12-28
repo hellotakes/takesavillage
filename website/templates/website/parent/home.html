@@ -12,10 +12,20 @@
                     <h3 class="card-title">{% trans 'Search a specialist' %}</h3>
                     <form action="{% url 'parent:caregiver_list' %}" method="get" class="text-end">
                         <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input class="form-control" list="specialityOptions" id="exampleDataList" placeholder="lactation, massage, natal ...">
+                            <datalist id="specialityOptions">
+                                {% for option_speciality in form.speciality|dictsort:'data.label' %}
+                                    {{ option_speciality }}
+                                {% endfor %}
+                            </datalist>
+                        </div>
+
+                        <div class="input-group input-group-lg mb-3">
                             <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
-                            <select class="form-select"  id="input-speciality">
+                            <select class="form-select"  id="input-speciality" >
                             {% for option_speciality in form.speciality|dictsort:'data.label' %}
-                                    <option value="{{ option_speciality }}"></option>
+                                    {{ option_speciality }}
                                 {% endfor %}
                             </select>
                             <span class="input-group-text">
