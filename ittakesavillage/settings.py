@@ -16,7 +16,7 @@ from pathlib import Path
 env = environ.Env(
     DEBUG=(bool, os.environ.get('DEBUG', False)),
     SECRET_KEY=(str, os.environ.get('SECRET_KEY', 'dsfqsdg4dfg7zdfg1qsd4gf')),
-    DATABASE_URL=(str, os.environ.get('DATABASE_URL', 'postgresql://postgres:JGVY40kLALtzdSPEhKOC@containers-us-west-138.railway.app:5572/railway'))
+    DATABASE_URL=(str, os.getenv('DATABASE_URL'))
 
 )
 
